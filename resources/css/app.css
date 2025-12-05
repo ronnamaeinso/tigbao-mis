@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
+@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+
+html{
+    --primary-color: #000957;
+    --secondary-color: #344CB7;
+    --third-color: rgb(123, 211, 123);
+    --fourth-color: #FFEB00;
+    --fifth-color: #5D6532;
+    font-size: 15px;
+}
+
+.primary-color{
+    color: var(--primary-color) !important;
+}
+
+.bg-primary-color{
+    background-color: var(--primary-color) !important;
+    color: white;
+}
+
+.bg-primary-color:hover{
+    background-color: var(--secondary-color) !important;
+    color: white;
+}
+
+.bg-primary-bgc{
+    background-color: var(--third-color) !important;
+}
+
