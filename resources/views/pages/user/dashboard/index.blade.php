@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+<x-auth-layout title="Resident">
+    {{-- resident --}}
+=======
 <x-auth-layout title="Citizens">
     {{-- citizens --}}
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     <section class="container m-0 p-0 mx-auto mt-4 px-4 px-md-0">
         {{-- announcements --}}
         <h4 class="primary-color">
@@ -67,6 +72,30 @@
                     <h1 class="text-end">{{$total_summons}}</h1>
                 </div>
             </div>
+<<<<<<< HEAD
+
+            {{-- Add this after the Request statistics section in your user dashboard --}}
+<h4 class="primary-color mt-4">
+    <x-icon type="question-circle"/>
+    Frequently Asked Questions (FAQ)
+</h4>
+<div class="card mt-2">
+    <div class="card-body text-center py-4">
+        <div class="mb-3">
+            <i class="fas fa-question-circle fa-3x primary-color"></i>
+        </div>
+        <h5 class="primary-color mb-3">Need Help?</h5>
+        <p class="text-muted mb-4">
+            Find answers to common questions about barangay services, requests, and procedures.
+        </p>
+        <a href="{{ route('faqs') }}" class="btn bg-primary-color text-white">
+            <x-icon type="external-link" class="me-2"/>
+            Go to FAQ Page
+        </a>
+    </div>
+</div>
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
         </div>
     </section>
 </x-auth-layout>

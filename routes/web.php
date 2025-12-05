@@ -29,6 +29,19 @@ use App\Http\Controllers\NotificationController;
 // landing page
 Route::get('/', [AuthController::class, 'viewLandingPage'])->name('home');
 
+<<<<<<< HEAD
+// FAQ Page (Public - accessible to everyone) SHAN
+Route::get('/faqs', function () {
+    return view('pages.user.faqs.indexfaqs');  // Public FAQs
+})->name('faqs');
+
+
+// SHAN
+
+
+
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 // <=================== auth ===================>
 Route::get('/sign-in', [AuthController::class, 'viewSignin'])->name('signin');
 Route::get('/sign-up', [AuthController::class, 'viewSignup'])->name('signup');
@@ -182,8 +195,13 @@ Route::resource('/animaltransportationrequestlist', AnimalTransportationClearanc
 // senior c records
 Route::resource('/senior-citizen/records', SeniorCitizenRecordsController::class)
     ->names('senior-citizen.records')->middleware('auth');
+<<<<<<< HEAD
+Route::put('/senior-citizen/decease/{id}', [SeniorCitizenRecordsController::class, 'setAsDecease'])
+    ->middleware('auth');
+=======
 //Route::put('/senior-citizen/decease/{id}', [SeniorCitizenRecordsController::class, 'setAsDecease'])
     //->middleware('auth');
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 Route::get('/senior-citizen/archive', [SeniorCitizenRecordsController::class, 'openArchive'])
     ->name('senior-citizen.archive')
     ->middleware('auth');
@@ -242,11 +260,20 @@ Route::resource('/announcements', AnnouncementController::class)
 Route::resource('/notifications', NotificationController::class)->middleware('auth');
 Route::get('//mark-read-all', [NotificationController::class, 'markAllRead'])->middleware('auth');
 
+<<<<<<< HEAD
+
+
+
+
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 // utilities
 require __DIR__.'/helper.php';
 
 // certificate layouts
 require __DIR__.'/certificate-layouts.php';
+<<<<<<< HEAD
+=======
 
 // SET AS DECEASE (must be above resource route)
 
@@ -268,3 +295,4 @@ Route::resource('/senior-citizen/records', SeniorCitizenRecordsController::class
 
 
 
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
