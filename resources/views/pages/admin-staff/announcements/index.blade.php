@@ -76,8 +76,7 @@
 
         </div>
     </section>
-{{-- SHAN WAS HERE --}}
-{{-- ronna was here --}}
+    {{-- itaok dia diri --}}
     {{-- script --}}
     <script>
         document.addEventListener("DOMContentLoaded", function() {
