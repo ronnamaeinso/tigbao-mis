@@ -102,9 +102,9 @@
                                 <x-icon type="bell" style="width: 18px; height: 18px;" />
                                 <span>Notifications</span>
                             </div>
-                            @if(Auth::user()->unreadNotifications->count() > 0)
+                            @if(Auth::user()->unreadNotifications()->count() > 0)
                                 <span class="badge bg-danger rounded-pill" style="font-size: 0.7rem; min-width: 20px;">
-                                    {{ Auth::user()->unreadNotifications->count() }}
+                                    {{ Auth::user()->unreadNotifications()->count() }}
                                 </span>
                             @endif
                         </a>
