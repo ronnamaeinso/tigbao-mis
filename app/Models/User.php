@@ -96,7 +96,6 @@ class User extends Authenticatable
     }
 
     public static function getUnverifiedAccountCount(): int {
-        // use DB count directly to avoid retrieving all models into memory
-        return (int) static::where('account_verified', '0')->count();
+        return (int) static::where('account_verified', '0')->get()->count();
     }
 }
