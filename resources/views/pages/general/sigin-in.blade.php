@@ -2,6 +2,7 @@
 
     {{-- custom blur background --}}
     <style>
+<<<<<<< HEAD
         .signin-container {
             position: relative;
             overflow: hidden;
@@ -13,6 +14,14 @@
         }
 
         .signin-container::before {
+=======
+        .blur-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blur-bg::before {
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
             content: "";
             position: absolute;
             top: 0;
@@ -23,6 +32,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+<<<<<<< HEAD
             background-color: rgba(0,0,0,0.3);
             background-blend-mode: darken;
             filter: blur(2px);
@@ -351,6 +361,55 @@
                 </x-form>
             </div>
         </div>
+=======
+            background-color: rgba(0,0,0,0.2);
+            background-blend-mode: darken;
+            filter: blur(2px); /* adjust blur level */
+            transform: scale(1.1); /* prevents blur edges */
+            z-index: -1;
+        }
+    </style>
+
+    {{-- main --}}
+    <section class="container-fluid vh-100 d-flex justify-content-center align-items-center blur-bg">
+
+        <x-card class="w-100 shadow-lg" style="max-width: 500px;">
+            <x-slot name="cardheader">
+                <div class="d-flex align-items-center gap-1">
+                    <x-icon type="sign-in" style="color: var(--primary-color);" />
+                    <span class="fw-bold" style="color: var(--primary-color);">Sign In</span>
+                </div>
+            </x-slot>
+
+            {{-- form sign in --}}
+            <x-form class="p-4" id="form-signin">
+
+                {{-- username --}}
+                <x-input-group type="email" class="mb-3" name="email" label-name="Email" label-icon="envelope"
+                    placeholder="email@example.com" />
+
+                {{-- password --}}
+                <x-input-group type="password" class="mb-3" name="password" label-name="Password" label-icon="key"
+                    placeholder="password" tail-icon="eye-slash cursor-pointer showpassword" addons='minlength=8' />
+
+                <div class="w-100 d-grid gap-3">
+
+                    {{-- submit btn --}}
+                    <x-button type="submit" id="btn-submit" class="btn-sm text-white"
+                        style="background-color: var(--third-color);">
+                        <x-icon type="sign-in text-white" />
+                        Sign in
+                    </x-button>
+
+                    {{-- sign up --}}
+                    <a href="{{route('signup')}}" class="text-decoration-none text-center"
+                        style="font-size: 0.7rem; color: var(--primary-color);">Don't Have Account? Sign Up Here</a>
+                </div>
+
+            </x-form>
+
+        </x-card>
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     </section>
 
     {{-- script --}}
@@ -387,6 +446,7 @@
                 e.stopImmediatePropagation();
 
                 submit_btn.disabled = true;
+<<<<<<< HEAD
                 const submitText = submit_btn.querySelector('span');
                 const submitIcon = submit_btn.querySelector('i');
                 const originalText = submitText.textContent;
@@ -395,6 +455,8 @@
                 // Show loading state
                 submitText.textContent = 'Signing in...';
                 submitIcon.className = 'fas fa-spinner fa-spin';
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 
                 try {
                     const url = `/signin-process`;
@@ -413,7 +475,11 @@
                             icon: 'warning',
                             text: 'Your Account Is Not Verified, Pls Wait For The Admin To Verify Your Account',
                         });
+<<<<<<< HEAD
                         resetSubmitButton();
+=======
+                        submit_btn.disabled = false;
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                         return;
                     }
 
@@ -423,7 +489,11 @@
                             icon: 'warning',
                             text: 'Invalid Credentials',
                         });
+<<<<<<< HEAD
                         resetSubmitButton();
+=======
+                        submit_btn.disabled = false;
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                         return;
                     }
 
@@ -432,17 +502,26 @@
                         icon : 'success',
                         text : 'Successfully Sign In'
                     }).then(async()=>{
+<<<<<<< HEAD
+=======
+                        submit_btn.disabled = false;
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                         const data = await response.json();
                         window.location.href = data.url;
                     });
 
                 } catch (error) {
                     console.error(error.message);
+<<<<<<< HEAD
+=======
+                    submit_btn.disabled = false;
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                     Swal.fire({
                         title: 'Error',
                         icon: 'error',
                         text: 'Something Went Wrong!, Pls Contact Developer'
                     });
+<<<<<<< HEAD
                     resetSubmitButton();
                 }
 
@@ -450,9 +529,15 @@
                     submit_btn.disabled = false;
                     submitText.textContent = originalText;
                     submitIcon.className = originalIcon;
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                 }
             });
         }
     </script>
 
+<<<<<<< HEAD
 </x-guest-layout>
+=======
+</x-guest-layout>
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571

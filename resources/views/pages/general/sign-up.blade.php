@@ -1,5 +1,6 @@
 <x-guest-layout title="Sign Up">
 
+<<<<<<< HEAD
     {{-- custom blur background --}}
     <style>
         .signup-container {
@@ -557,6 +558,152 @@
                 </x-form>
             </div>
         </div>
+=======
+    {{-- main --}}
+    <section class="container d-flex justify-content-center my-3">
+        <x-card class="w-100 shadow-lg" style="max-width: 700px;">
+            <x-slot name="cardheader">
+                <div class="d-flex align-items-center gap-1">
+                    <x-icon type="user-plus" style="color: var(--primary-color);" />
+                    <span class="fw-bold" style="color: var(--primary-color);">Sign Up</span>
+                </div>
+            </x-slot>
+
+            {{-- form sign in --}}
+            <x-form class="p-2" id="form-sign-up">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{-- first name --}}
+                        <small class="fw-medium text-danger small-error fname"></small>
+                        <x-input-group type="text" class="mb-2" name="fname" label-icon="user primary-color"
+                            placeholder="First Name" label-name="First Name" :is-required="false" />
+                    </div>
+                    <div class="col-sm-6">
+                        {{-- middle name --}}
+                        <small class="fw-medium text-danger small-error mname"></small>
+                        <x-input-group type="text" class="mb-2" name="mname" label-icon="user primary-color"
+                            placeholder="Middle Name" label-name="Middle Name" :is-required="false" />
+                    </div>
+                    <div class="col-sm-6">
+                        {{-- last name --}}
+                        <small class="fw-medium text-danger small-error lname"></small>
+                        <x-input-group type="text" class="mb-2" name="lname" label-icon="user primary-color"
+                            placeholder="Last Name" label-name="Last Name" :is-required="false" />
+                    </div>
+                    <div class="col-sm-6">
+                        {{-- birthdate --}}
+                        <small class="fw-medium text-danger small-error bdate"></small>
+                        <x-input-group type="date" class="mb-2" name="bdate" label-icon="cake primary-color"
+                            placeholder="Birthdate" label-name="Birth Date" :is-required="false" />
+                    </div>
+                    <div class="col-sm-6">
+                        {{-- birthplace --}}
+                        <small class="fw-medium text-danger small-error bplace"></small>
+                        <x-input-group type="text" class="mb-2" name="bplace"
+                            label-icon="location-pin primary-color" placeholder="birth place" label-name="Birth Place"
+                            :is-required="false" />
+                    </div>
+                    {{-- address --}}
+                    <div class="col-sm-6">
+                        <small class="fw-medium text-danger small-error address"></small>
+                        <x-input-group type="text" class="mb-2" name="address"
+                            label-icon="location-dot primary-color" placeholder="address" label-name="Address"
+                            :is-required="false" />
+                    </div>
+                    {{-- sex --}}
+                    <div class="col-sm-6">
+                        <small class="fw-medium text-danger small-error sex"></small>
+                        <x-select-input-group name="sex" label-icon="venus-mars primary-color" label-name="Sex"
+                            :is-required="false">
+                            <option value="">--Select Sex--</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </x-select-input-group>
+                    </div>
+                    <div class="col-sm-6">
+                        {{-- id type --}}
+                        <small class="fw-medium text-danger small-error id_type"></small>
+                        <x-select-input-group name="id-type" label-icon="id-card primary-color" label-name="ID Type"
+                            :is-required="false">
+                            <option value="">--Select ID Type</option>
+                            <option value="1">National ID</option>
+                            <option value="2">Driver's License</option>
+                            <option value="3">Passport</option>
+                            <option value="4">Voter's ID</option>
+                            <option value="5">PRC ID</option>
+                            <option value="6">Postal ID</option>
+                            <option value="7">UMID</option>
+                            <option value="8">Student ID</option>
+                            <option value="9">Employee ID</option>
+                            <option value="10">SSS ID</option>
+                            <option value="11">PhilHealth ID</option>
+                            <option value="12">Pag-Ibig ID</option>
+                        </x-select-input-group>
+                    </div>
+                    {{-- id picture --}}
+                    <div class="col-sm-6">
+                        <small class="fw-medium text-danger small-error file"></small>
+                        <x-input-group type="file" class="mb-2" name="file" label-icon="id-card primary-color"
+                            label-name="Upload ID" :is-required="false" />
+                    </div>
+                    {{-- preview id pic --}}
+                    <div class="col-sm-6 mb-3">
+                        <img src="{{ asset('logos/img.png') }}" alt="" class="w-100" id="img-preview">
+                    </div>
+                    <div class="col-sm-6">
+                        <small class="fw-medium text-danger small-error contact"></small>
+                        {{-- contact --}}
+                        <x-input-group class="mb-2" name="contact" label-icon="phone primary-color"
+                            placeholder="09*********" label-name="contact" :is-required="false" />
+                    </div>
+                    <div class="col-sm-6">
+                        {{-- username --}}
+                        <small class="fw-medium text-danger small-error email"></small>
+                        <x-input-group type="email" class="mb-2" name="email" label-name="Email"
+                            label-icon="envelope primary-color" placeholder="email@example.com" :is-required="false" />
+                    </div>
+                    <div class="col-sm-6">
+                        {{-- password --}}
+                        <small class="fw-medium text-danger small-error password"></small>
+                        <x-input-group type="password" class="mb-2" name="password" label-name="password"
+                            label-icon="key primary-color"
+                            tail-icon="eye-slash primary-color cursor-pointer showpassword" addons='minlength=8'
+                            :is-required="false" />
+                    </div>
+                </div>
+
+                {{-- otp confirmation --}}
+                <div class="d-grid gap-2 mb-3">
+                    <div class="w-100">
+                        <label for="otp" class="fw-medium primary-color">OTP</label>
+                        <input type="number" class="form-control" name="otp" id="otp"
+                            placeholder="3 digit otp" :is-required="false">
+                        <small class="fw-medium text-danger otp"></small>
+                    </div>
+                    <button class="btn btn-sm bg-primary-color text-nowrap m-0" type="button" id="send-otp-btn"
+                        style="width: fit-content;">
+                        Send otp
+                    </button>
+                </div>
+
+                {{-- wrapper for signin & signup --}}
+                <div class="w-100 d-grid">
+
+                    {{-- submit btn --}}
+                    <x-button type="submit" id="btn-submit" class="btn-sm bg-primary-color mb-3">
+                        <x-icon type="sign-in text-white" />
+                        Sign up
+                    </x-button>
+
+                    {{-- sign up --}}
+                    <a href="{{ route('signin') }}" class="text-decoration-none text-center"
+                        style="font-size: 0.7rem; color: var(--primary-color);">Already Have Account? Sign In Here</a>
+                </div>
+
+            </x-form>
+
+        </x-card>
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     </section>
 
     {{-- script --}}
@@ -601,18 +748,24 @@
         function signUp() {
             const form = document.getElementById('form-sign-up');
             const submit_btn = document.getElementById('btn-submit');
+<<<<<<< HEAD
             const submitText = submit_btn.querySelector('span');
             const submitIcon = submit_btn.querySelector('i');
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 
             // add event listener submit
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
                 submit_btn.disabled = true; // disabled btn
+<<<<<<< HEAD
                 const originalText = submitText.textContent;
                 const originalIcon = submitIcon.className;
                 submitText.textContent = 'Processing...';
                 submitIcon.className = 'fas fa-spinner fa-spin';
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 
                 try {
                     /**
@@ -638,7 +791,11 @@
                             icon: 'error',
                             text: 'Make user to upload img only and img size only accepts 5mb below!'
                         }).then(() => {
+<<<<<<< HEAD
                             resetSubmitButton();
+=======
+                            submit_btn.disabled = false; //enable btn again
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                         });
                         return; // return/
                     }
@@ -651,7 +808,11 @@
                             icon: 'warning',
                             text: 'OTP do not match!'
                         }).then(() => {
+<<<<<<< HEAD
                             resetSubmitButton();
+=======
+                            submit_btn.disabled = false; //enable btn again
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                         });
                         return; // return
                     }
@@ -682,7 +843,11 @@
                             count++;
                         }
 
+<<<<<<< HEAD
                         resetSubmitButton();
+=======
+                        submit_btn.disabled = false; //enable btn again
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                         return; // return
                     }
 
@@ -696,7 +861,11 @@
                     Swal.fire({
                         title: 'Success',
                         icon: 'success',
+<<<<<<< HEAD
                         text: 'Successfully Registered, Please wait for registration approval'
+=======
+                        text: 'Successfully Register, Pls wait for registration approval'
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                     }).then(() => {
                         window.location.href = '/sign-in';
                     });
@@ -712,6 +881,7 @@
                     Swal.fire({
                         title: 'Error',
                         icon: 'error',
+<<<<<<< HEAD
                         text: 'Something Went Wrong, Please Contact Developer',
                     });
                     console.error(error.message);
@@ -722,6 +892,12 @@
                     submit_btn.disabled = false;
                     submitText.textContent = originalText;
                     submitIcon.className = originalIcon;
+=======
+                        text: 'Something Went Wrong, Pls Contact Developer',
+                    });
+                    console.error(error.message);
+                    submit_btn.disabled = false;
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                 }
             });
         }
@@ -731,7 +907,10 @@
             const id = document.getElementById('file'); // file input
             const img_container = document.getElementById('img-preview'); // image preview
             const originalSrc = img_container.src; // store original src
+<<<<<<< HEAD
             const previewContainer = img_container.parentElement;
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 
             id.addEventListener('change', function(e) {
                 const file = e.target.files[0]; // first selected file
@@ -741,13 +920,19 @@
 
                     reader.onload = function(event) {
                         img_container.src = event.target.result; // set preview image
+<<<<<<< HEAD
                         previewContainer.style.borderColor = 'var(--primary-color)';
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                     };
 
                     reader.readAsDataURL(file);
                 } else {
                     img_container.src = originalSrc; // revert to original if empty
+<<<<<<< HEAD
                     previewContainer.style.borderColor = '#dee2e6';
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                 }
             });
         }
@@ -758,8 +943,11 @@
         function sendOTP() {
             const btn = document.getElementById('send-otp-btn');
             const email = document.getElementById('email');
+<<<<<<< HEAD
             const btnText = btn.querySelector('span');
             const btnIcon = btn.querySelector('i');
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 
             btn.addEventListener('click', async function(e) {
                 e.preventDefault();
@@ -777,10 +965,13 @@
                 }
 
                 try {
+<<<<<<< HEAD
                     btn.disabled = true;
                     btnText.textContent = 'Sending...';
                     btnIcon.className = 'fas fa-spinner fa-spin';
 
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                     await axios.post(`/send-otp`, {
                         email: email.value
                     }, {
@@ -794,12 +985,18 @@
                     Swal.fire({
                         title: 'Success',
                         icon: 'success',
+<<<<<<< HEAD
                         text: 'OTP sent'
                     });
 
                     btnText.textContent = 'Resend OTP';
                     btnIcon.className = 'fas fa-paper-plane';
 
+=======
+                        text: 'OTP send'
+                    });
+
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                 } catch (error) {
                     console.error(error);
                     Swal.fire({
@@ -807,10 +1004,13 @@
                         icon: 'error',
                         text: 'Something went wrong'
                     });
+<<<<<<< HEAD
                     btnText.textContent = 'Send OTP';
                     btnIcon.className = 'fas fa-paper-plane';
                 } finally {
                     btn.disabled = false;
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
                 }
             });
         }
@@ -823,4 +1023,8 @@
             });
         }
     </script>
+<<<<<<< HEAD
 </x-guest-layout>
+=======
+</x-guest-layout>
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571

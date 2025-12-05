@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <x-auth-layout title="Resident">
     {{-- resident --}}
+=======
+<x-auth-layout title="Citizens">
+    {{-- citizens --}}
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     <section class="container m-0 p-0 mx-auto mt-4 px-4 px-md-0">
         {{-- announcements --}}
         <h4 class="primary-color">
@@ -67,6 +72,7 @@
                     <h1 class="text-end">{{$total_summons}}</h1>
                 </div>
             </div>
+<<<<<<< HEAD
 
             {{-- Add this after the Request statistics section in your user dashboard --}}
 <h4 class="primary-color mt-4">
@@ -88,6 +94,8 @@
         </a>
     </div>
 </div>
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
         </div>
     </section>
 </x-auth-layout>

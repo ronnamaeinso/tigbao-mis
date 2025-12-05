@@ -248,8 +248,11 @@ class AuthController extends Controller
 
         return response()->json([], 200);
     }
+<<<<<<< HEAD
 
     public function viewFaqs() {
         return view('faqs');
     }
+=======
+>>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 }
