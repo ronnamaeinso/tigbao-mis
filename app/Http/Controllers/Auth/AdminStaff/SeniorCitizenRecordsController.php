@@ -13,12 +13,6 @@ class SeniorCitizenRecordsController extends Controller
     {
         $search = urldecode(request('search'));
 
-<<<<<<< HEAD
-        $query = SeniorCitizenRecord::orderBy('created_at')->where('is_deceased', 0);
-
-        if (! empty($search)) {
-            $query->where('name', 'LIKE', "%$search%");
-=======
         $query = SeniorCitizenRecord::orderBy('created_at', 'desc')
             ->where('is_deceased', 0);
 
@@ -28,7 +22,6 @@ class SeniorCitizenRecordsController extends Controller
                   ->orWhere('middle_name', 'LIKE', "%$search%")
                   ->orWhere('last_name', 'LIKE', "%$search%");
             });
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
         }
 
         $data = $query->paginate(15)->withQueryString();
@@ -37,11 +30,7 @@ class SeniorCitizenRecordsController extends Controller
             $item->did = Crypt::encrypt($item->id);
         }
 
-<<<<<<< HEAD
-        return view('pages.admin-staff.senior-citizen-records.index', ['data' => $data]);
-=======
         return view('pages.admin-staff.senior-citizen-records.index', compact('data'));
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     }
 
     public function create()
@@ -52,32 +41,15 @@ class SeniorCitizenRecordsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-<<<<<<< HEAD
-            'name' => 'required',
-            'bdate' => 'required',
-=======
             'first_name'  => 'required|string|max:255',
             'middle_name' => 'nullable|string|max:255',
             'last_name'   => 'required|string|max:255',
             'gender'      => 'required|string',
             'bdate'       => 'required|date',
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
         ], [
             'required' => 'This field is required.',
         ]);
 
-<<<<<<< HEAD
-        $create = SeniorCitizenRecord::create([
-            'name' => $request->name,
-            'bdate' => $request->bdate,
-        ]);
-
-        if (! $create) {
-            return redirect()->back()->with('error', 'Server Error');
-        }
-
-        return redirect()->back()->with('success', 'Successfully Register Senior Citizen');
-=======
         $created = SeniorCitizenRecord::create([
             'first_name'  => $request->first_name,
             'middle_name' => $request->middle_name,
@@ -93,95 +65,34 @@ class SeniorCitizenRecordsController extends Controller
 
         return redirect()->route('senior-citizen.records.index')
             ->with('success', 'Successfully registered senior citizen');
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     }
 
     public function edit(string $id)
     {
         $d_id = Crypt::decrypt(urldecode($id));
-<<<<<<< HEAD
-
-        $row = SeniorCitizenRecord::findOrFail($d_id);
-
-        return view('pages.admin-staff.senior-citizen-records.edit', [
-            'id' => $id,
-=======
         $row = SeniorCitizenRecord::findOrFail($d_id);
 
         return view('pages.admin-staff.senior-citizen-records.edit', [
             'id'   => $id,
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
             'data' => $row,
         ]);
     }
 
-<<<<<<< HEAD
-    public function destroy($id)
-    {
-        $did = Crypt::decrypt(urldecode($id));
-
-        $row = SeniorCitizenRecord::findOrFail($did);
-
-        $status = $row->delete();
-
-        if (! $status) {
-            return response()->json([], 500);
-        }
-
-        return response()->json([], 200);
-    }
-
-    public function setAsDecease($id)
-    {
-        $did = Crypt::decrypt(urldecode($id));
-
-        $row = SeniorCitizenRecord::findOrFail($did);
-
-        $status = $row->update([
-            'is_deceased' => 1,
-        ]);
-
-        if (! $status) {
-            return response()->json([], 500);
-        }
-
-        return response()->json([], 200);
-    }
-
-=======
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     public function update(string $id, Request $request)
     {
         $did = Crypt::decrypt(urldecode($id));
 
         $request->validate([
-<<<<<<< HEAD
-            'name' => 'required',
-            'bdate' => 'required',
-=======
             'first_name'       => 'required|string|max:255',
             'middle_name'      => 'nullable|string|max:255',
             'last_name'        => 'required|string|max:255',
             'gender'           => 'required|string',
             'bdate'            => 'required|date',
             'death_certificate'=> 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
         ]);
 
         $row = SeniorCitizenRecord::findOrFail($did);
 
-<<<<<<< HEAD
-        $status = $row->update([
-            'name' => $request->name,
-            'bdate' => $request->bdate,
-        ]);
-
-        if (! $status) {
-            return redirect()->back()->with('error', 'Server Error');
-        }
-
-        return redirect()->back()->with('success', 'Successfully updated senior citizen');
-=======
         $dataToUpdate = [
             'first_name'  => $request->first_name,
             'middle_name' => $request->middle_name,
@@ -240,20 +151,10 @@ class SeniorCitizenRecordsController extends Controller
         $row->save();
 
         return response()->json(['success' => true], 200);
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     }
 
     public function openArchive()
     {
-<<<<<<< HEAD
-
-        $search = urldecode(request('search'));
-
-        $query = SeniorCitizenRecord::orderBy('updated_at')->where('is_deceased', 1);
-
-        if (! empty($search)) {
-            $query->where('name', 'LIKE', "%$search%");
-=======
         $search = urldecode(request('search'));
 
         $query = SeniorCitizenRecord::where('is_deceased', 1)
@@ -265,7 +166,6 @@ class SeniorCitizenRecordsController extends Controller
                   ->orWhere('middle_name', 'LIKE', "%$search%")
                   ->orWhere('last_name', 'LIKE', "%$search%");
             });
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
         }
 
         $data = $query->paginate(15)->withQueryString();
@@ -274,12 +174,6 @@ class SeniorCitizenRecordsController extends Controller
             $item->did = Crypt::encrypt($item->id);
         }
 
-<<<<<<< HEAD
-        return view('pages.admin-staff.senior-citizen-records.archive', [
-            'data' => $data
-        ]);
-=======
         return view('pages.admin-staff.senior-citizen-records.archive', compact('data'));
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     }
 }

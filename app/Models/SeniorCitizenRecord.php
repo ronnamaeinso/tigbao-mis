@@ -2,20 +2,11 @@
 
 namespace App\Models;
 
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Factories\HasFactory;
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
 use Illuminate\Database\Eloquent\Model;
 
 class SeniorCitizenRecord extends Model
 {
-<<<<<<< HEAD
-    protected $fillable = [
-        'name',
-        'bdate',
-        'is_deceased'
-=======
     use HasFactory;
 
     protected $fillable = [
@@ -33,6 +24,5 @@ class SeniorCitizenRecord extends Model
         'bdate'         => 'date',
         'date_deceased' => 'date',
         'is_deceased'   => 'boolean',
->>>>>>> 5db0eec706031899e3d50656e7a59c5722229571
     ];
 }
