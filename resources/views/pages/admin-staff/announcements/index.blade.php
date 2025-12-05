@@ -76,7 +76,7 @@
 
         </div>
     </section>
-
+{{-- SHAN WAS HERE --}}
     {{-- script --}}
     <script>
         document.addEventListener("DOMContentLoaded", function() {
