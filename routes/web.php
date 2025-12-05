@@ -29,16 +29,6 @@ use App\Http\Controllers\NotificationController;
 // landing page
 Route::get('/', [AuthController::class, 'viewLandingPage'])->name('home');
 
-// FAQ Page (Public - accessible to everyone) SHAN
-Route::get('/faqs', function () {
-    return view('pages.user.faqs.indexfaqs');  // Public FAQs
-})->name('faqs');
-
-
-// SHAN
-
-
-
 // <=================== auth ===================>
 Route::get('/sign-in', [AuthController::class, 'viewSignin'])->name('signin');
 Route::get('/sign-up', [AuthController::class, 'viewSignup'])->name('signup');
@@ -192,8 +182,8 @@ Route::resource('/animaltransportationrequestlist', AnimalTransportationClearanc
 // senior c records
 Route::resource('/senior-citizen/records', SeniorCitizenRecordsController::class)
     ->names('senior-citizen.records')->middleware('auth');
-Route::put('/senior-citizen/decease/{id}', [SeniorCitizenRecordsController::class, 'setAsDecease'])
-    ->middleware('auth');
+//Route::put('/senior-citizen/decease/{id}', [SeniorCitizenRecordsController::class, 'setAsDecease'])
+    //->middleware('auth');
 Route::get('/senior-citizen/archive', [SeniorCitizenRecordsController::class, 'openArchive'])
     ->name('senior-citizen.archive')
     ->middleware('auth');
@@ -278,3 +268,4 @@ Route::resource('/senior-citizen/records', SeniorCitizenRecordsController::class
 
 
 
+//kjhgjg jhgjhg hgg
